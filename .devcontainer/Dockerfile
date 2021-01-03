@@ -30,8 +30,6 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g nx
-RUN npm install -g @angular/cli
-RUN npm install -g @nestjs/cli
 
 RUN curl -L git.io/antigen > ~/antigen.zsh
 ENV DEBIAN_FRONTEND=dialog
