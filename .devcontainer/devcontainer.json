@@ -1,0 +1,72 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.154.0/containers/debian
+{
+	"name": "Debian",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick an Debian version: buster, stretch
+		"args": {
+			"VARIANT": "buster"
+		}
+	},
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		// Workbench
+		"workbench.iconTheme": "material-icon-theme",
+		// Terminal
+		"terminal.integrated.shell.linux": "/bin/zsh",
+		"terminal.explorerKind": "external",
+		// Git
+		"git.autofetch": true,
+		"git.enableSmartCommit": true,
+		"git.fetchOnPull": false,
+		"git.confirmSync": false,
+		// Editor
+		"editor.minimap.enabled": false,
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": true
+		},
+		// ESlint
+		"eslint.format.enable": true,
+		"eslint.packageManager": "yarn",
+		"eslint.validate": [
+			"javascript",
+			"typescript"
+		],
+		// Prettier
+		"prettier.packageManager": "yarn",
+		"prettier.requireConfig": true
+	},
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"aaron-bond.better-comments",
+		"dbaeumer.vscode-eslint",
+		"knisterpeter.vscode-github",
+		"bierner.github-markdown-preview",
+		"codezombiech.gitignore",
+		"orta.vscode-jest",
+		"eg2.vscode-npm-script",
+		"nrwl.angular-console",
+		"esbenp.prettier-vscode",
+		"rvest.vs-code-prettier-eslint",
+		"gamunu.vscode-yarn",
+		"googlecloudtools.cloudcode",
+		"ms-azuretools.vscode-docker",
+		"pkief.material-icon-theme",
+		"redhat.vscode-yaml"
+	],
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [8080],
+	// Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
+	// "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
+	"mounts": [
+		"source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
+		"source=node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
+		"source=zsh_history,target=/zsh_history,type=volume"
+	],
+	// Uncomment when using a ptrace-based debugger like C++, Go, and Rust
+	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+}
