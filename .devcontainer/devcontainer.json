@@ -51,11 +51,11 @@
 		"esbenp.prettier-vscode",
 		"rvest.vs-code-prettier-eslint",
 		"gamunu.vscode-yarn",
-		"googlecloudtools.cloudcode",
 		"ms-azuretools.vscode-docker",
 		"pkief.material-icon-theme",
 		"redhat.vscode-yaml",
-		"ms-vscode.vscode-typescript-tslint-plugin"
+		"ms-vscode.vscode-typescript-tslint-plugin",
+		"firsttris.vscode-jest-runner"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [8080],
@@ -69,5 +69,5 @@
 	// Uncomment when using a ptrace-based debugger like C++, Go, and Rust
 	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	// "remoteUser": "vscode",
+	"remoteUser": "root",
 }
