@@ -1,7 +1,7 @@
 {
   "npmScope": "repo",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "implicitDependencies": {
     "workspace.json": "*",
@@ -19,16 +19,22 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "accessToken": "ZGIyNWU5MDQtOTEyNS00YjEyLThlYzctN2ZiYjYzNmRjMThlfHJlYWQtd3JpdGU=",
-        "cacheableOperations": [
-          "build",
-          "test",
-          "lint",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
         "canTrackAnalytics": false,
         "showUsageWarnings": true
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "my-app": {
+      "tags": []
+    },
+    "my-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["my-app"]
+    },
+    "my-server": {
+      "tags": []
+    }
+  }
 }
