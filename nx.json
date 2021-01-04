@@ -1,7 +1,7 @@
 {
   "npmScope": "repo",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "implicitDependencies": {
     "workspace.json": "*",
