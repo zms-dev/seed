@@ -1,8 +1,6 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.154.0/containers/debian/.devcontainer/base.Dockerfile
 
-# [Choice] Debian version: buster, stretch
-ARG VARIANT="buster"
-FROM mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT}
+FROM debian:buster-slim
 
 USER root
 
@@ -11,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Prerequisites
 RUN apt-get update \
   && apt-get -y install --no-install-recommends apt-utils apt-transport-https 2>&1 \
-  && apt-get -y install git curl software-properties-common
+  && apt-get -y install git curl software-properties-common gnupg2
 
 # Github
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
@@ -33,7 +31,8 @@ RUN apt-get update \
 
 RUN npm install -g nx
 
-RUN curl -L git.io/antigen > ~/antigen.zsh
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+
 ENV DEBIAN_FRONTEND=dialog
 COPY .zshrc /root/.zshrc
 
